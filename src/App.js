@@ -4,18 +4,60 @@ const user = {
   imageSize: 400
 };
 
-export default function Profile() {
-  return(
-    <>
-        <h1>{user.name}</h1>
-        <img
-        className="avatar"
-        src={user.imageUrl}
-        alt={'Photo of ' + user.name} 
-        style={{width: user.imageSize,height: user.imageSize
+const product = [
+  {
+    title: 'IPhone',
+    isPhone: true,
+    id: 1 
+  },
+  {
+    title: 'Samsung',
+    isPhone: true,
+    id: 2 
+  },
+  {
+    title: 'Redmi',
+    isPhone: true,
+    id: 3 
+  },
+  {
+    title: 'Watermelon',
+    isPhone: false,
+    id: 4 
+  },
+];
 
-        }}
-        />
-    </>
+// export default function Profile() {
+//   return(
+//     <>
+//         <h1>{user.name}</h1>
+//         <img
+//         className="avatar"
+//         src={user.imageUrl}
+//         alt={'Photo of ' + user.name} 
+//         style={{width: user.imageSize,height: user.imageSize
+
+//         }}
+//         />
+//     </>
+//   );
+// }
+
+export default function ShoppingList() {
+  const listItems = product.map(product =>
+
+    <li 
+    key={product.id}
+    style={{
+      color: product.isPhone ? 'green' : "red"
+    }}
+    >
+    {product.title}
+    </li>
   );
+
+  return (
+    <ul>{listItems}</ul>
+  )
 }
+
